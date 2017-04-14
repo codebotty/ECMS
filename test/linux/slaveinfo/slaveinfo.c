@@ -602,6 +602,31 @@ void slaveinfo(char *ifname)
                         si_map_sii(cnt);
             }
          }
+         char b[2];
+         int wkc;
+         b[0] = 0;
+         printf("start testing\n");
+         ec_send_processdata();
+         wkc = ec_receive_processdata(EC_TIMEOUTRET);
+         ec_writestate(0);
+         ec_statecheck(0, EC_STATE_OPERATIONAL,  EC_TIMEOUTSTATE);
+         wkc = ec_readODlist(3,&ODlist);
+         printf("wkc: %d, slave number: %d, entries: %d\n",wkc, ODlist.Slave, ODlist.Entries);
+         for(i=0; i<8; i++)
+         {
+            printf("index:%4.4x, type:%4.4x\n", ODlist.Index[i], ODlist.DataType[i]);
+         }
+         /**
+         for(i=0; i<1000; i++)
+         {
+            b[0] = b[0]^1;
+            if(i%21==0) printf("%d %d\n",i, b[0]);
+            //ec_RxPDO(3, 0x7070, sizeof(char), (void*)b);
+            wkc = ec_SDOwrite(3, 0x7070, 0, FALSE, sizeof(char), (void*)b, EC_TIMEOUTRXM);
+            if(i%21==0) printf("wkc %d \n",wkc);
+            osal_usleep(100000);
+         }
+         */
       }
       else
       {
@@ -644,6 +669,7 @@ int main(int argc, char *argv[])
          adapter = adapter->next;
       }
    }
+
 
    printf("End program\n");
    return (0);

@@ -337,7 +337,6 @@ int ecx_SDOwrite(ecx_contextt *context, uint16 Slave, uint16 Index, uint8 SubInd
    uint16 framedatasize;
    boolean  NotLast;
    uint8 *hp;
-
    ec_clearmbx(&MbxIn);
    /* Empty slave out mailbox if something is in. Timout set to 0 */
    wkc = ecx_mbxreceive(context, Slave, (ec_mbxbuft *)&MbxIn, 0);
