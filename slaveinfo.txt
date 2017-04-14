@@ -1,0 +1,106 @@
+Slave:1
+ Name:EK1100
+ Output size: 0bits
+ Input size: 0bits
+ State: 4
+ Delay: 0[ns]
+ Has DC: 1
+ DCParentport:0
+ Activeports:1.1.0.0
+ Configured address: 1001
+ Man: 00000002 ID: 044c2c52 Rev: 00120000
+ FMMUfunc 0:0 1:0 2:0 3:0
+ MBX length wr: 0 rd: 0 MBX protocols : 00
+ CoE details: 00 FoE details: 00 EoE details: 00 SoE details: 00
+ Ebus current: -2000[mA]
+ only LRD/LWR:0
+PDO mapping according to SII :
+
+Slave:2
+ Name:EL1088
+ Output size: 0bits
+ Input size: 8bits
+ State: 4
+ Delay: 140[ns]
+ Has DC: 1
+ DCParentport:1
+ Activeports:1.1.0.0
+ Configured address: 1002
+ Man: 00000002 ID: 04403052 Rev: 00110000
+ SM0 A:1000 L:   1 F:00010000 Type:4
+ FMMU0 Ls:00000001 Ll:   1 Lsb:0 Leb:7 Ps:1000 Psb:0 Ty:01 Act:01
+ FMMUfunc 0:2 1:0 2:0 3:0
+ MBX length wr: 0 rd: 0 MBX protocols : 00
+ CoE details: 00 FoE details: 00 EoE details: 00 SoE details: 00
+ Ebus current: 90[mA]
+ only LRD/LWR:0
+PDO mapping according to SII :
+  SM0 TXPDO 0x1A00 Channel 1
+     addr b   index: sub bitl data_type    name
+  [0x0001.0] 0x6000:0x01 0x01 BOOLEAN      Input
+  SM0 TXPDO 0x1A01 Channel 2
+     addr b   index: sub bitl data_type    name
+  [0x0001.1] 0x6010:0x01 0x01 BOOLEAN      Input
+  SM0 TXPDO 0x1A02 Channel 3
+     addr b   index: sub bitl data_type    name
+  [0x0001.2] 0x6020:0x01 0x01 BOOLEAN      Input
+  SM0 TXPDO 0x1A03 Channel 4
+     addr b   index: sub bitl data_type    name
+  [0x0001.3] 0x6030:0x01 0x01 BOOLEAN      Input
+  SM0 TXPDO 0x1A04 Channel 5
+     addr b   index: sub bitl data_type    name
+  [0x0001.4] 0x6040:0x01 0x01 BOOLEAN      Input
+  SM0 TXPDO 0x1A05 Channel 6
+     addr b   index: sub bitl data_type    name
+  [0x0001.5] 0x6050:0x01 0x01 BOOLEAN      Input
+  SM0 TXPDO 0x1A06 Channel 7
+     addr b   index: sub bitl data_type    name
+  [0x0001.6] 0x6060:0x01 0x01 BOOLEAN      Input
+  SM0 TXPDO 0x1A07 Channel 8
+     addr b   index: sub bitl data_type    name
+  [0x0001.7] 0x6070:0x01 0x01 BOOLEAN      Input
+
+Slave:3
+ Name:EL2088
+ Output size: 8bits
+ Input size: 0bits
+ State: 4
+ Delay: 295[ns]
+ Has DC: 1
+ DCParentport:1
+ Activeports:1.0.0.0
+ Configured address: 1003
+ Man: 00000002 ID: 08283052 Rev: 00110000
+ SM0 A:0f00 L:   1 F:00090044 Type:3
+ FMMU0 Ls:00000000 Ll:   1 Lsb:0 Leb:7 Ps:0f00 Psb:0 Ty:02 Act:01
+ FMMUfunc 0:1 1:0 2:0 3:0
+ MBX length wr: 0 rd: 0 MBX protocols : 00
+ CoE details: 00 FoE details: 00 EoE details: 00 SoE details: 00
+ Ebus current: 110[mA]
+ only LRD/LWR:0
+PDO mapping according to SII :
+  SM0 RXPDO 0x1600 Channel 1
+     addr b   index: sub bitl data_type    name
+  [0x0000.0] 0x7000:0x01 0x01 BOOLEAN      Output
+  SM0 RXPDO 0x1601 Channel 2
+     addr b   index: sub bitl data_type    name
+  [0x0000.1] 0x7010:0x01 0x01 BOOLEAN      Output
+  SM0 RXPDO 0x1602 Channel 3
+     addr b   index: sub bitl data_type    name
+  [0x0000.2] 0x7020:0x01 0x01 BOOLEAN      Output
+  SM0 RXPDO 0x1603 Channel 4
+     addr b   index: sub bitl data_type    name
+  [0x0000.3] 0x7030:0x01 0x01 BOOLEAN      Output
+  SM0 RXPDO 0x1604 Channel 5
+     addr b   index: sub bitl data_type    name
+  [0x0000.4] 0x7040:0x01 0x01 BOOLEAN      Output
+  SM0 RXPDO 0x1605 Channel 6
+     addr b   index: sub bitl data_type    name
+  [0x0000.5] 0x7050:0x01 0x01 BOOLEAN      Output
+  SM0 RXPDO 0x1606 Channel 7
+     addr b   index: sub bitl data_type    name
+  [0x0000.6] 0x7060:0x01 0x01 BOOLEAN      Output
+  SM0 RXPDO 0x1607 Channel 8
+     addr b   index: sub bitl data_type    name
+  [0x0000.7] 0x7070:0x01 0x01 BOOLEAN      Output
+
