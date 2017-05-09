@@ -583,6 +583,45 @@ int ecx_RxPDO(ecx_contextt *context, uint16 Slave, uint16 RxPDOnumber, int psize
    return wkc;
 }
 
+//added
+
+int RxPDO2(uint16 Slave, uint16 RxPDOnumber, int psize, void* p)
+{
+   ecx_contextt * context;
+   context = &ecx_context;
+   ec_SDOt *SDOp;
+   int wkc, maxdata;
+   ec_mbxbuft MbxIn, MbxOut;
+   uint8 cnt;
+   uint16 framedatasize;
+
+   ec_clearmbx(&MbxIn);
+   /* Empty slave out mailbox if something is in. Timout set to 0 */
+   wkc = ecx_mbxreceive(context, Slave, (ec_mbxbuft *)&MbxIn, 0);
+   ec_clearmbx(&MbxOut);
+   SDOp = (ec_SDOt *)&MbxOut;
+   maxdata = context->slavelist[Slave].mbx_l - 0x08; /* data section=mailbox size - 6 mbx - 2 CoE */
+   framedatasize = psize;
+   if (framedatasize > maxdata)
+   {
+      //printf("%d\n", maxdata);
+      //return -1;
+   }
+   SDOp->MbxHeader.length = htoes(0x02 + framedatasize);
+   SDOp->MbxHeader.address = htoes(0x0000);
+   SDOp->MbxHeader.priority = 0x00;
+   /* get new mailbox counter, used for session handle */
+   cnt = ec_nextmbxcnt(context->slavelist[Slave].mbx_cnt);
+   context->slavelist[Slave].mbx_cnt = cnt;
+   SDOp->MbxHeader.mbxtype = ECT_MBXT_COE + (cnt << 4); /* CoE */
+   SDOp->CANOpen = htoes((RxPDOnumber & 0x01ff) + (ECT_COES_RXPDO << 12)); /* number 9bits service upper 4 bits */
+   /* copy PDO data to mailbox */
+   memcpy(&SDOp->Command, p, psize);
+   /* send mailbox RxPDO request to slave */
+   wkc = ecx_mbxsend(context, Slave, (ec_mbxbuft *)&MbxOut, EC_TIMEOUTTXM);
+
+   return wkc;
+}
 /** CoE TxPDO read remote request, blocking.
  *
  * A RxPDO download request is issued.
