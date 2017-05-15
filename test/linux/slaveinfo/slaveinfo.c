@@ -527,7 +527,11 @@ void slaveinfo(char *ifname)
          printf("Calculated workcounter %d\n", expectedWKC);
          /* wait for all slaves to reach SAFE_OP state */
          ec_statecheck(0, EC_STATE_SAFE_OP,  EC_TIMEOUTSTATE * 3);
-         if (ec_slave[0].state != EC_STATE_SAFE_OP )
+         int chk = 1;
+	ec_readstate();
+	for (i=1; i<=ec_slavecount; i++)
+		chk = chk && ec_slave[i].state == EC_STATE_SAFE_OP;
+         if (!chk)
          {
             printf("Not all slaves reached safe operational state.\n");
             ec_readstate();
@@ -606,10 +610,42 @@ void slaveinfo(char *ifname)
          int wkc;
          b[0] = 0x00;
          printf("start testing\n");
+	printf("Request operational state for all slaves\n");
+         expectedWKC = (ec_group[0].outputsWKC * 2) + ec_group[0].inputsWKC;
+         printf("Calculated workcounter %d\n", expectedWKC);
+         ec_slave[0].state = EC_STATE_OPERATIONAL;
+         /* send one valid process data to make outputs in slaves happy*/
          ec_send_processdata();
-         wkc = ec_receive_processdata(EC_TIMEOUTRET);
+         ec_receive_processdata(EC_TIMEOUTRET);
+         /* request OP state for all slaves */
          ec_writestate(0);
-         ec_statecheck(0, EC_STATE_OPERATIONAL,  EC_TIMEOUTSTATE);
+         chk = 40;
+         /* wait for all slaves to reach OP state */
+         do
+         {
+            ec_send_processdata();
+            ec_receive_processdata(EC_TIMEOUTRET);
+            ec_statecheck(0, EC_STATE_OPERATIONAL, 50000);
+         }
+         while (chk-- && (ec_slave[0].state != EC_STATE_OPERATIONAL));
+	ec_readstate();
+	for (i=1; i<=ec_slavecount; i++)
+		chk = chk && ec_slave[i].state == EC_STATE_OPERATIONAL;
+         //if (!chk)
+         {
+            printf("Not all slaves reached soperational state.\n");
+            ec_readstate();
+            for(i = 1; i<=ec_slavecount ; i++)
+            {
+               //if(ec_slave[i].state != EC_STATE_OPERATIONAL)
+               {
+                  printf("Slave %d State=%2x StatusCode=%4x : %s\n",
+                     i, ec_slave[i].state, ec_slave[i].ALstatuscode, ec_ALstatuscode2string(ec_slave[i].ALstatuscode));
+               }
+            }
+         }
+
+
          wkc = ec_readODlist(3,&ODlist);
          printf("wkc: %d, slave number: %d, entries: %d\n",wkc, ODlist.Slave, ODlist.Entries);
          for(i=0; i<8; i++)
@@ -621,8 +657,8 @@ void slaveinfo(char *ifname)
          {
             b[0] = b[0]^0x01;
             if(i%21==0) printf("%d %d\n",i, b[0]);
-            wkc = RxPDO2(2, 0x0000, 1, b);
-            //wkc = ec_SDOwrite(3, 0x7070, 0, FALSE, sizeof(char), (void*)b, EC_TIMEOUTRXM);
+            //wkc = ec_RxPDO(2, 0x0000, 1, b);
+            wkc = ec_SDOwrite(3, 0x1600, 01, FALSE, sizeof(char), (void*)b, EC_TIMEOUTRXM);
             if(i%21==0) printf("wkc %d \n",wkc);
             osal_usleep(100000);
          }

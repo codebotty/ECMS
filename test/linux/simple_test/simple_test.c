@@ -51,6 +51,13 @@ void simpletest(char *ifname)
          printf("Slaves mapped, state to SAFE_OP.\n");
          /* wait for all slaves to reach SAFE_OP state */
          ec_statecheck(0, EC_STATE_SAFE_OP,  EC_TIMEOUTSTATE * 4);
+	 if(ec_slave[ec_slavecount].state&0x000f !=EC_STATE_SAFE_OP) {
+		ec_slave[ec_slavecount].state = EC_STATE_SAFE_OP;
+		ec_writestate(ec_slavecount);
+		ec_statecheck(ec_slavecount, EC_STATE_SAFE_OP, EC_TIMEOUTSTATE);
+	}
+	ec_readstate();
+	printf("slave 3 state %d\n",ec_slave[ec_slavecount].state&0x000f);
 
          oloop = ec_slave[0].Obytes;
          if ((oloop == 0) && (ec_slave[0].Obits > 0)) oloop = 1;
@@ -78,13 +85,31 @@ void simpletest(char *ifname)
             ec_receive_processdata(EC_TIMEOUTRET);
             ec_statecheck(0, EC_STATE_OPERATIONAL, 50000);
          }
+
+
          while (chk-- && (ec_slave[0].state != EC_STATE_OPERATIONAL));
+	if(ec_slave[ec_slavecount].state&0x000f !=EC_STATE_OPERATIONAL) {
+		ec_slave[ec_slavecount].state = EC_STATE_OPERATIONAL;
+		ec_send_processdata();
+	    	ec_receive_processdata(EC_TIMEOUTRET);
+		ec_writestate(ec_slavecount);
+		ec_statecheck(ec_slavecount, EC_STATE_OPERATIONAL, EC_TIMEOUTSTATE);
+	}
+	ec_readstate();
+	printf("slave 3 state %d\n",ec_slave[ec_slavecount].state);
          if (ec_slave[0].state == EC_STATE_OPERATIONAL )
          {
             printf("Operational state reached for all slaves.\n");
             inOP = TRUE;
+	    if(ec_slave[3].state==EC_STATE_OPERATIONAL)
+		printf("slave 3 state operational\n");
+	    else
+		printf("slave 3 state %d\n",ec_slave[3].state);
                 /* cyclic loop */
-            for(i = 1; i <= 10000; i++)
+		 uint8 b = 0x01;		
+		printf("sdowrite test : %d\n",ec_SDOwrite(3,0x1600,01,FALSE,sizeof(b),&b,EC_TIMEOUTRXM));
+	   
+            for(i = 1; i <= 3000; i++)
             {
                ec_send_processdata();
                wkc = ec_receive_processdata(EC_TIMEOUTRET);
@@ -107,7 +132,8 @@ void simpletest(char *ifname)
                         needlf = TRUE;
                     }
                     osal_usleep(5000);
-
+		    ec_SDOwrite(3,0x1600,01,FALSE,sizeof(b),&b,EC_TIMEOUTRXM);
+		    b = 1-b;
                 }
                 inOP = FALSE;
             }
