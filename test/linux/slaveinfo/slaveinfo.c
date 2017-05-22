@@ -606,9 +606,9 @@ void slaveinfo(char *ifname)
                         si_map_sii(cnt);
             }
          }
-         uint8 b[2];
+         uint16 b = 0;
          int wkc;
-         b[0] = 0x00;
+         
          printf("start testing\n");
 	printf("Request operational state for all slaves\n");
          expectedWKC = (ec_group[0].outputsWKC * 2) + ec_group[0].inputsWKC;
@@ -655,12 +655,12 @@ void slaveinfo(char *ifname)
          
          for(i=0; i<1000; i++)
          {
-            b[0] = b[0]^0x01;
-            if(i%21==0) printf("%d %d\n",i, b[0]);
+            b = 0x00ff - b;
+            if(i%21==0) printf("%d %d\n",i, b);
             //wkc = ec_RxPDO(2, 0x0000, 1, b);
-            wkc = ec_SDOwrite(3, 0x1600, 01, FALSE, sizeof(char), (void*)b, EC_TIMEOUTRXM);
+            wkc = ec_SDOwrite(4, 0x7020, 01, FALSE, sizeof(b), &b, EC_TIMEOUTRXM);
             if(i%21==0) printf("wkc %d \n",wkc);
-            osal_usleep(100000);
+            osal_usleep(50000);
          }
          
       }
