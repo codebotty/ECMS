@@ -606,7 +606,7 @@ void slaveinfo(char *ifname)
                         si_map_sii(cnt);
             }
          }
-         uint16 b = 0;
+         uint16 b[4] = {0,0,0,0};
          int wkc;
          
          printf("start testing\n");
@@ -653,14 +653,17 @@ void slaveinfo(char *ifname)
             printf("index:%4.4x, type:%4.4x\n", ODlist.Index[i], ODlist.DataType[i]);
          }
          
-         for(i=0; i<1000; i++)
+         for(i=0; i<100; i++)
          {
-            b = 0x00ff - b;
-            if(i%21==0) printf("%d %d\n",i, b);
-            //wkc = ec_RxPDO(2, 0x0000, 1, b);
-            wkc = ec_SDOwrite(4, 0x7020, 01, FALSE, sizeof(b), &b, EC_TIMEOUTRXM);
+            b[0] = 0x0ff0 - b[0];
+            b[1] = 0x0ff0 - b[1];
+            b[2] = 0x0ff0 - b[2];
+            b[3] = 0x0ff0 - b[3];
+            if(i%21==0) printf("%d %d\n",i, b[0]);
+            wkc = ec_RxPDO(4, 0x1600, sizeof(b), b);
+            //wkc = ec_SDOwrite(4, 0x7000, 01, FALSE, sizeof(b), &b, EC_TIMEOUTRXM);
             if(i%21==0) printf("wkc %d \n",wkc);
-            osal_usleep(50000);
+            osal_usleep(500000);
          }
          
       }

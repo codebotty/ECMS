@@ -1,0 +1,1031 @@
+SOEM (Simple Open EtherCAT Master)
+Slaveinfo
+Starting slaveinfo
+ec_init on enp2s0 succeeded.
+Time:     420.012 SDO slave:4 index:1c13.01 error:06090011 Subindex does not exist
+5 slaves found and configured.
+Calculated workcounter 6
+
+Slave:1
+ Name:EK1100
+ Output size: 0bits
+ Input size: 0bits
+ State: 4
+ Delay: 0[ns]
+ Has DC: 1
+ DCParentport:0
+ Activeports:1.1.0.0
+ Configured address: 1001
+ Man: 00000002 ID: 044c2c52 Rev: 00120000
+ FMMUfunc 0:0 1:0 2:0 3:0
+ MBX length wr: 0 rd: 0 MBX protocols : 00
+ CoE details: 00 FoE details: 00 EoE details: 00 SoE details: 00
+ Ebus current: -2000[mA]
+ only LRD/LWR:0
+
+Slave:2
+ Name:EL1088
+ Output size: 0bits
+ Input size: 8bits
+ State: 4
+ Delay: 145[ns]
+ Has DC: 1
+ DCParentport:1
+ Activeports:1.1.0.0
+ Configured address: 1002
+ Man: 00000002 ID: 04403052 Rev: 00110000
+ SM0 A:1000 L:   1 F:00010000 Type:4
+ FMMU0 Ls:00000009 Ll:   1 Lsb:0 Leb:7 Ps:1000 Psb:0 Ty:01 Act:01
+ FMMUfunc 0:2 1:0 2:0 3:0
+ MBX length wr: 0 rd: 0 MBX protocols : 00
+ CoE details: 00 FoE details: 00 EoE details: 00 SoE details: 00
+ Ebus current: 90[mA]
+ only LRD/LWR:0
+
+Slave:3
+ Name:EL2088
+ Output size: 8bits
+ Input size: 0bits
+ State: 4
+ Delay: 290[ns]
+ Has DC: 1
+ DCParentport:1
+ Activeports:1.1.0.0
+ Configured address: 1003
+ Man: 00000002 ID: 08283052 Rev: 00110000
+ SM0 A:0f00 L:   1 F:00090044 Type:3
+ FMMU0 Ls:00000000 Ll:   1 Lsb:0 Leb:7 Ps:0f00 Psb:0 Ty:02 Act:01
+ FMMUfunc 0:1 1:0 2:0 3:0
+ MBX length wr: 0 rd: 0 MBX protocols : 00
+ CoE details: 00 FoE details: 00 EoE details: 00 SoE details: 00
+ Ebus current: 110[mA]
+ only LRD/LWR:0
+
+Slave:4
+ Name:EL4004
+ Output size: 64bits
+ Input size: 0bits
+ State: 4
+ Delay: 435[ns]
+ Has DC: 1
+ DCParentport:1
+ Activeports:1.1.0.0
+ Configured address: 1004
+ Man: 00000002 ID: 0fa43052 Rev: 00130000
+ SM0 A:1000 L: 128 F:00010026 Type:1
+ SM1 A:1080 L: 128 F:00010022 Type:2
+ SM2 A:1100 L:   8 F:00010024 Type:3
+ SM3 A:1180 L:   0 F:00000000 Type:4
+ FMMU0 Ls:00000001 Ll:   8 Lsb:0 Leb:7 Ps:1100 Psb:0 Ty:02 Act:01
+ FMMUfunc 0:1 1:0 2:0 3:0
+ MBX length wr: 128 rd: 128 MBX protocols : 0c
+ CoE details: 03 FoE details: 01 EoE details: 00 SoE details: 00
+ Ebus current: 140[mA]
+ only LRD/LWR:0
+ CoE Object Description found, 32 entries.
+ Index: 1000 Datatype: 0007 Objectcode: 07 Name: Device type
+  Sub: 00 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Device type
+          Value :0x01901389 26219401
+ Index: 1008 Datatype: 0009 Objectcode: 07 Name: Device name
+  Sub: 00 Datatype: 0009 Bitlength: 0030 Obj.access: 0007 Name: Device name
+          Value :EL4004
+ Index: 1009 Datatype: 0009 Objectcode: 07 Name: Hardware version
+  Sub: 00 Datatype: 0009 Bitlength: 0010 Obj.access: 0007 Name: Hardware version
+          Value :13
+ Index: 100a Datatype: 0009 Objectcode: 07 Name: Software version
+  Sub: 00 Datatype: 0009 Bitlength: 0010 Obj.access: 0007 Name: Software version
+          Value :01
+ Index: 1011 Datatype: 0007 Objectcode: 08 Name: Restore default parameters
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 003f Name: SubIndex 001
+          Value :0x00000000 0
+ Index: 1018 Datatype: 0023 Objectcode: 09 Name: Identity
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x04 4
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Vendor ID
+          Value :0x00000002 2
+  Sub: 02 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Product code
+          Value :0x0fa43052 262418514
+  Sub: 03 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Revision
+          Value :0x00120000 1179648
+  Sub: 04 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Serial number
+          Value :0x00000000 0
+ Index: 10f0 Datatype: 002b Objectcode: 09 Name: Backup parameter
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Checksum
+          Value :0x00007896 30870
+ Index: 1600 Datatype: 0021 Objectcode: 09 Name: RxPDO-Map OutputsCh.1
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 001
+          Value :0x70000110 1879048464
+ Index: 1601 Datatype: 0021 Objectcode: 09 Name: RxPDO-Map OutputsCh.2
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 001
+          Value :0x70100110 1880097040
+ Index: 1602 Datatype: 0021 Objectcode: 09 Name: RxPDO-Map OutputsCh.3
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 001
+          Value :0x70200110 1881145616
+ Index: 1603 Datatype: 0021 Objectcode: 09 Name: RxPDO-Map OutputsCh.4
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 001
+          Value :0x70300110 1882194192
+ Index: 1c00 Datatype: 0005 Objectcode: 08 Name: Sync manager type
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x04 4
+  Sub: 01 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 001
+          Value :0x01 1
+  Sub: 02 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 002
+          Value :0x02 2
+  Sub: 03 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 003
+          Value :0x03 3
+  Sub: 04 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 004
+          Value :0x04 4
+ Index: 1c12 Datatype: 0006 Objectcode: 08 Name: RxPDO assign
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x04 4
+  Sub: 01 Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: SubIndex 001
+          Value :0x1600 5632
+  Sub: 02 Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: SubIndex 002
+          Value :0x1601 5633
+  Sub: 03 Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: SubIndex 003
+          Value :0x1602 5634
+  Sub: 04 Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: SubIndex 004
+          Value :0x1603 5635
+ Index: 1c32 Datatype: 0029 Objectcode: 09 Name: SM output parameter
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x21 33
+  Sub: 01 Datatype: 0006 Bitlength: 0010 Obj.access: 003f Name: Sync mode
+          Value :0x0001 1
+  Sub: 02 Datatype: 0007 Bitlength: 0020 Obj.access: 003f Name: Cycle time
+          Value :0x000062c0 25280
+  Sub: 03 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Shift time
+          Value :0x00000000 0
+  Sub: 04 Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: Sync modes supported
+          Value :0xc007 49159
+  Sub: 05 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Minimum cycle time
+          Value :0x00000000 0
+  Sub: 06 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Calc and copy time
+          Value :0x00000000 0
+  Sub: 08 Datatype: 0006 Bitlength: 0010 Obj.access: 003f Name: Command
+          Value :0x0000 0
+  Sub: 09 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Delay time
+          Value :0x00000000 0
+  Sub: 0b Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: SM event missed counter
+          Value :0x0000 0
+  Sub: 0c Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: Cycle exceeded counter
+          Value :0x0000 0
+  Sub: 0d Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: Shift too short counter
+          Value :0x0000 0
+  Sub: 20 Datatype: 0001 Bitlength: 0001 Obj.access: 0007 Name: Sync error
+          Value :FALSE
+ Index: 7000 Datatype: 0001 Objectcode: 09 Name: AO outputs Ch.1
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 0047 Name: Analog output
+          Value :0x0000 0
+ Index: 7010 Datatype: 0001 Objectcode: 09 Name: AO outputs Ch.2
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 0047 Name: Analog output
+          Value :0x0000 0
+ Index: 7020 Datatype: 0001 Objectcode: 09 Name: AO outputs Ch.3
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 0047 Name: Analog output
+          Value :0x0000 0
+ Index: 7030 Datatype: 0001 Objectcode: 09 Name: AO outputs Ch.4
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 0047 Name: Analog output
+          Value :0x0000 0
+ Index: 8000 Datatype: 0002 Objectcode: 09 Name: AO settings Ch.1
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x16 22
+  Sub: 01 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user scale
+          Value :FALSE
+  Sub: 02 Datatype: 0800 Bitlength: 0003 Obj.access: 033f Name: Presentation
+          Value :Unknown type
+  Sub: 05 Datatype: 0801 Bitlength: 0002 Obj.access: 033f Name: Watchdog
+          Value :Unknown type
+  Sub: 07 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user calibration
+          Value :FALSE
+  Sub: 08 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable vendor calibration
+          Value :TRUE
+  Sub: 11 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Offset
+          Value :0x0000 0
+  Sub: 12 Datatype: 0004 Bitlength: 0020 Obj.access: 033f Name: Gain
+          Value :0x00010000 65536
+  Sub: 13 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Default output
+          Value :0x0000 0
+  Sub: 14 Datatype: 0006 Bitlength: 0010 Obj.access: 033f Name: Default output ramp
+          Value :0xffff 65535
+  Sub: 15 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User calibration offset
+          Value :0x0000 0
+  Sub: 16 Datatype: 0006 Bitlength: 0010 Obj.access: 033f Name: User calibration gain
+          Value :0xffff 65535
+ Index: 800e Datatype: 0003 Objectcode: 09 Name: AO internal data Ch.1
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: DAC raw value
+          Value :0x0002 2
+ Index: 800f Datatype: 0004 Objectcode: 09 Name: AO vendor data Ch.1
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x02 2
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 003f Name: Calibration offset
+          Value :0x0002 2
+  Sub: 02 Datatype: 0006 Bitlength: 0010 Obj.access: 003f Name: Calibration gain
+          Value :0x1d3f 7487
+ Index: 8010 Datatype: 0002 Objectcode: 09 Name: AO settings Ch.2
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x16 22
+  Sub: 01 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user scale
+          Value :FALSE
+  Sub: 02 Datatype: 0800 Bitlength: 0003 Obj.access: 033f Name: Presentation
+          Value :Unknown type
+  Sub: 05 Datatype: 0801 Bitlength: 0002 Obj.access: 033f Name: Watchdog
+          Value :Unknown type
+  Sub: 07 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user calibration
+          Value :FALSE
+  Sub: 08 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable vendor calibration
+          Value :TRUE
+  Sub: 11 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Offset
+          Value :0x0000 0
+  Sub: 12 Datatype: 0004 Bitlength: 0020 Obj.access: 033f Name: Gain
+          Value :0x00010000 65536
+  Sub: 13 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Default output
+          Value :0x0000 0
+  Sub: 14 Datatype: 0006 Bitlength: 0010 Obj.access: 033f Name: Default output ramp
+          Value :0xffff 65535
+  Sub: 15 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User calibration offset
+          Value :0x0000 0
+  Sub: 16 Datatype: 0006 Bitlength: 0010 Obj.access: 033f Name: User calibration gain
+          Value :0xffff 65535
+ Index: 801e Datatype: 0003 Objectcode: 09 Name: AO internal data Ch.2
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: DAC raw value
+          Value :0x0004 4
+ Index: 801f Datatype: 0004 Objectcode: 09 Name: AO vendor data Ch.2
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x02 2
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 003f Name: Calibration offset
+          Value :0x0004 4
+  Sub: 02 Datatype: 0006 Bitlength: 0010 Obj.access: 003f Name: Calibration gain
+          Value :0x1d6c 7532
+ Index: 8020 Datatype: 0002 Objectcode: 09 Name: AO settings Ch.3
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x16 22
+  Sub: 01 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user scale
+          Value :FALSE
+  Sub: 02 Datatype: 0800 Bitlength: 0003 Obj.access: 033f Name: Presentation
+          Value :Unknown type
+  Sub: 05 Datatype: 0801 Bitlength: 0002 Obj.access: 033f Name: Watchdog
+          Value :Unknown type
+  Sub: 07 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user calibration
+          Value :FALSE
+  Sub: 08 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable vendor calibration
+          Value :TRUE
+  Sub: 11 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Offset
+          Value :0x0000 0
+  Sub: 12 Datatype: 0004 Bitlength: 0020 Obj.access: 033f Name: Gain
+          Value :0x00010000 65536
+  Sub: 13 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Default output
+          Value :0x0000 0
+  Sub: 14 Datatype: 0006 Bitlength: 0010 Obj.access: 033f Name: Default output ramp
+          Value :0xffff 65535
+  Sub: 15 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User calibration offset
+          Value :0x0000 0
+  Sub: 16 Datatype: 0006 Bitlength: 0010 Obj.access: 033f Name: User calibration gain
+          Value :0xffff 65535
+ Index: 802e Datatype: 0003 Objectcode: 09 Name: AO internal data Ch.3
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: DAC raw value
+          Value :0x0005 5
+ Index: 802f Datatype: 0004 Objectcode: 09 Name: AO vendor data Ch.3
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x02 2
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 003f Name: Calibration offset
+          Value :0x0005 5
+  Sub: 02 Datatype: 0006 Bitlength: 0010 Obj.access: 003f Name: Calibration gain
+          Value :0x1d42 7490
+ Index: 8030 Datatype: 0002 Objectcode: 09 Name: AO settings Ch.4
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x16 22
+  Sub: 01 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user scale
+          Value :FALSE
+  Sub: 02 Datatype: 0800 Bitlength: 0003 Obj.access: 033f Name: Presentation
+          Value :Unknown type
+  Sub: 05 Datatype: 0801 Bitlength: 0002 Obj.access: 033f Name: Watchdog
+          Value :Unknown type
+  Sub: 07 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user calibration
+          Value :FALSE
+  Sub: 08 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable vendor calibration
+          Value :TRUE
+  Sub: 11 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Offset
+          Value :0x0000 0
+  Sub: 12 Datatype: 0004 Bitlength: 0020 Obj.access: 033f Name: Gain
+          Value :0x00010000 65536
+  Sub: 13 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Default output
+          Value :0x0000 0
+  Sub: 14 Datatype: 0006 Bitlength: 0010 Obj.access: 033f Name: Default output ramp
+          Value :0xffff 65535
+  Sub: 15 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User calibration offset
+          Value :0x0000 0
+  Sub: 16 Datatype: 0006 Bitlength: 0010 Obj.access: 033f Name: User calibration gain
+          Value :0xffff 65535
+ Index: 803e Datatype: 0003 Objectcode: 09 Name: AO internal data Ch.4
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: DAC raw value
+          Value :0x0003 3
+ Index: 803f Datatype: 0004 Objectcode: 09 Name: AO vendor data Ch.4
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x02 2
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 003f Name: Calibration offset
+          Value :0x0003 3
+  Sub: 02 Datatype: 0006 Bitlength: 0010 Obj.access: 003f Name: Calibration gain
+          Value :0x1d1e 7454
+ Index: f000 Datatype: 002c Objectcode: 09 Name: Modular device profile
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x02 2
+  Sub: 01 Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: Module index distance
+          Value :0x0010 16
+  Sub: 02 Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: Maximum number of modules
+          Value :0x0004 4
+ Index: f008 Datatype: 0007 Objectcode: 07 Name: Code word
+  Sub: 00 Datatype: 0007 Bitlength: 0020 Obj.access: 003f Name: Code word
+          Value :0x00000000 0
+
+Slave:5
+ Name:EL3064
+ Output size: 0bits
+ Input size: 128bits
+ State: 4
+ Delay: 585[ns]
+ Has DC: 1
+ DCParentport:1
+ Activeports:1.0.0.0
+ Configured address: 1005
+ Man: 00000002 ID: 0bf83052 Rev: 00130000
+ SM0 A:1000 L: 128 F:00010026 Type:1
+ SM1 A:1080 L: 128 F:00010022 Type:2
+ SM2 A:1100 L:   0 F:00000004 Type:3
+ SM3 A:1180 L:  16 F:00010020 Type:4
+ FMMU0 Ls:0000000a Ll:  16 Lsb:0 Leb:7 Ps:1180 Psb:0 Ty:01 Act:01
+ FMMUfunc 0:2 1:0 2:0 3:0
+ MBX length wr: 128 rd: 128 MBX protocols : 0c
+ CoE details: 07 FoE details: 01 EoE details: 00 SoE details: 00
+ Ebus current: 130[mA]
+ only LRD/LWR:0
+ CoE Object Description found, 47 entries.
+ Index: 1000 Datatype: 0007 Objectcode: 07 Name: Device type
+  Sub: 00 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Device type
+          Value :0x012c1389 19665801
+ Index: 1008 Datatype: 0009 Objectcode: 07 Name: Device name
+  Sub: 00 Datatype: 0009 Bitlength: 0030 Obj.access: 0007 Name: Device name
+          Value :EL3064
+ Index: 1009 Datatype: 0009 Objectcode: 07 Name: Hardware version
+  Sub: 00 Datatype: 0009 Bitlength: 0010 Obj.access: 0007 Name: Hardware version
+          Value :10
+ Index: 100a Datatype: 0009 Objectcode: 07 Name: Software version
+  Sub: 00 Datatype: 0009 Bitlength: 0010 Obj.access: 0007 Name: Software version
+          Value :09
+ Index: 1011 Datatype: 0007 Objectcode: 08 Name: Restore default parameters
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 003f Name: SubIndex 001
+          Value :0x00000000 0
+ Index: 1018 Datatype: 0023 Objectcode: 09 Name: Identity
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x04 4
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Vendor ID
+          Value :0x00000002 2
+  Sub: 02 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Product code
+          Value :0x0bf83052 200814674
+  Sub: 03 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Revision
+          Value :0x00130000 1245184
+  Sub: 04 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Serial number
+          Value :0x00000000 0
+ Index: 10f0 Datatype: 002b Objectcode: 09 Name: Backup parameter handling
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Checksum
+          Value :0x0000f9a9 63913
+ Index: 1800 Datatype: 0027 Objectcode: 09 Name: AI TxPDO-Par Standard Ch.1
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x06 6
+  Sub: 06 Datatype: 000a Bitlength: 0010 Obj.access: 0007 Name: Exclude TxPDOs
+          Value :0x01 0x1a 
+ Index: 1801 Datatype: 0027 Objectcode: 09 Name: AI TxPDO-Par Compact Ch.1
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x06 6
+  Sub: 06 Datatype: 000a Bitlength: 0010 Obj.access: 0007 Name: Exclude TxPDOs
+          Value :0x00 0x1a 
+ Index: 1802 Datatype: 0027 Objectcode: 09 Name: AI TxPDO-Par Standard Ch.2
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x06 6
+  Sub: 06 Datatype: 000a Bitlength: 0010 Obj.access: 0007 Name: Exclude TxPDOs
+          Value :0x03 0x1a 
+ Index: 1803 Datatype: 0027 Objectcode: 09 Name: AI TxPDO-Par Compact Ch.2
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x06 6
+  Sub: 06 Datatype: 000a Bitlength: 0010 Obj.access: 0007 Name: Exclude TxPDOs
+          Value :0x02 0x1a 
+ Index: 1804 Datatype: 0027 Objectcode: 09 Name: AI TxPDO-Par Standard Ch.3
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x06 6
+  Sub: 06 Datatype: 000a Bitlength: 0010 Obj.access: 0007 Name: Exclude TxPDOs
+          Value :0x05 0x1a 
+ Index: 1805 Datatype: 0027 Objectcode: 09 Name: AI TxPDO-Par Compact Ch.3
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x06 6
+  Sub: 06 Datatype: 000a Bitlength: 0010 Obj.access: 0007 Name: Exclude TxPDOs
+          Value :0x04 0x1a 
+ Index: 1806 Datatype: 0027 Objectcode: 09 Name: AI TxPDO-Par Standard Ch.4
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x06 6
+  Sub: 06 Datatype: 000a Bitlength: 0010 Obj.access: 0007 Name: Exclude TxPDOs
+          Value :0x07 0x1a 
+ Index: 1807 Datatype: 0027 Objectcode: 09 Name: AI TxPDO-Par Compact Ch.4
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x06 6
+  Sub: 06 Datatype: 000a Bitlength: 0010 Obj.access: 0007 Name: Exclude TxPDOs
+          Value :0x06 0x1a 
+ Index: 1a00 Datatype: 0021 Objectcode: 09 Name: AI TxPDO-Map Standard Ch.1
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x0a 10
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 001
+          Value :0x60000101 1610612993
+  Sub: 02 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 002
+          Value :0x60000201 1610613249
+  Sub: 03 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 003
+          Value :0x60000302 1610613506
+  Sub: 04 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 004
+          Value :0x60000502 1610614018
+  Sub: 05 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 005
+          Value :0x60000701 1610614529
+  Sub: 06 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 006
+          Value :0x00000001 1
+  Sub: 07 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 007
+          Value :0x00000006 6
+  Sub: 08 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 008
+          Value :0x60000f01 1610616577
+  Sub: 09 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 009
+          Value :0x60001001 1610616833
+  Sub: 0a Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 010
+          Value :0x60001110 1610617104
+ Index: 1a01 Datatype: 0021 Objectcode: 09 Name: AI TxPDO-Map Compact Ch.1
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 001
+          Value :0x60001110 1610617104
+ Index: 1a02 Datatype: 0021 Objectcode: 09 Name: AI TxPDO-Map Standard Ch.2
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x0a 10
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 001
+          Value :0x60100101 1611661569
+  Sub: 02 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 002
+          Value :0x60100201 1611661825
+  Sub: 03 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 003
+          Value :0x60100302 1611662082
+  Sub: 04 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 004
+          Value :0x60100502 1611662594
+  Sub: 05 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 005
+          Value :0x60100701 1611663105
+  Sub: 06 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 006
+          Value :0x00000001 1
+  Sub: 07 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 007
+          Value :0x00000006 6
+  Sub: 08 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 008
+          Value :0x60100f01 1611665153
+  Sub: 09 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 009
+          Value :0x60101001 1611665409
+  Sub: 0a Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 010
+          Value :0x60101110 1611665680
+ Index: 1a03 Datatype: 0021 Objectcode: 09 Name: AI TxPDO-Map Compact Ch.2
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 001
+          Value :0x60101110 1611665680
+ Index: 1a04 Datatype: 0021 Objectcode: 09 Name: AI TxPDO-Map Standard Ch.3
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x0a 10
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 001
+          Value :0x60200101 1612710145
+  Sub: 02 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 002
+          Value :0x60200201 1612710401
+  Sub: 03 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 003
+          Value :0x60200302 1612710658
+  Sub: 04 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 004
+          Value :0x60200502 1612711170
+  Sub: 05 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 005
+          Value :0x60200701 1612711681
+  Sub: 06 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 006
+          Value :0x00000001 1
+  Sub: 07 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 007
+          Value :0x00000006 6
+  Sub: 08 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 008
+          Value :0x60200f01 1612713729
+  Sub: 09 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 009
+          Value :0x60201001 1612713985
+  Sub: 0a Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 010
+          Value :0x60201110 1612714256
+ Index: 1a05 Datatype: 0021 Objectcode: 09 Name: AI TxPDO-Map Compact Ch.3
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 001
+          Value :0x60201110 1612714256
+ Index: 1a06 Datatype: 0021 Objectcode: 09 Name: AI TxPDO-Map Standard Ch.4
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x0a 10
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 001
+          Value :0x60300101 1613758721
+  Sub: 02 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 002
+          Value :0x60300201 1613758977
+  Sub: 03 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 003
+          Value :0x60300302 1613759234
+  Sub: 04 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 004
+          Value :0x60300502 1613759746
+  Sub: 05 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 005
+          Value :0x60300701 1613760257
+  Sub: 06 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 006
+          Value :0x00000001 1
+  Sub: 07 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 007
+          Value :0x00000006 6
+  Sub: 08 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 008
+          Value :0x60300f01 1613762305
+  Sub: 09 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 009
+          Value :0x60301001 1613762561
+  Sub: 0a Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 010
+          Value :0x60301110 1613762832
+ Index: 1a07 Datatype: 0021 Objectcode: 09 Name: AI TxPDO-Map Compact Ch.4
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 001
+          Value :0x60301110 1613762832
+ Index: 1c00 Datatype: 0005 Objectcode: 08 Name: Sync manager type
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x04 4
+  Sub: 01 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 001
+          Value :0x01 1
+  Sub: 02 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 002
+          Value :0x02 2
+  Sub: 03 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 003
+          Value :0x03 3
+  Sub: 04 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 004
+          Value :0x04 4
+ Index: 1c12 Datatype: 0006 Objectcode: 08 Name: RxPDO assign
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 000f Name: SubIndex 000
+          Value :0x00 0
+ Index: 1c13 Datatype: 0006 Objectcode: 08 Name: TxPDO assign
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 000f Name: SubIndex 000
+          Value :0x04 4
+  Sub: 01 Datatype: 0006 Bitlength: 0010 Obj.access: 000f Name: SubIndex 001
+          Value :0x1a00 6656
+  Sub: 02 Datatype: 0006 Bitlength: 0010 Obj.access: 000f Name: SubIndex 002
+          Value :0x1a02 6658
+  Sub: 03 Datatype: 0006 Bitlength: 0010 Obj.access: 000f Name: SubIndex 003
+          Value :0x1a04 6660
+  Sub: 04 Datatype: 0006 Bitlength: 0010 Obj.access: 000f Name: SubIndex 004
+          Value :0x1a06 6662
+ Index: 1c33 Datatype: 0029 Objectcode: 09 Name: SM input parameter
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x20 32
+  Sub: 01 Datatype: 0006 Bitlength: 0010 Obj.access: 003f Name: Sync mode
+          Value :0x0000 0
+  Sub: 02 Datatype: 0007 Bitlength: 0020 Obj.access: 003f Name: Cycle time
+          Value :0x0009634b 615243
+  Sub: 03 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Shift time
+          Value :0x00000000 0
+  Sub: 04 Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: Sync modes supported
+          Value :0xc003 49155
+  Sub: 05 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Minimum cycle time
+          Value :0x00061a80 400000
+  Sub: 06 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Calc and copy time
+          Value :0x00000000 0
+  Sub: 07 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Minimum delay time
+          Value :0x00000000 0
+  Sub: 08 Datatype: 0006 Bitlength: 0010 Obj.access: 003f Name: Command
+          Value :0x0000 0
+  Sub: 09 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: Maximum delay time
+          Value :0x00000000 0
+  Sub: 0b Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: SM event missed counter
+          Value :0x0000 0
+  Sub: 0c Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: Cycle exceeded counter
+          Value :0x0000 0
+  Sub: 0d Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: Shift too short counter
+          Value :0x0000 0
+  Sub: 20 Datatype: 0001 Bitlength: 0001 Obj.access: 0007 Name: Sync error
+          Value :FALSE
+ Index: 6000 Datatype: 0000 Objectcode: 09 Name: AI Inputs
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x11 17
+  Sub: 01 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: Underrange
+          Value :FALSE
+  Sub: 02 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: Overrange
+          Value :FALSE
+  Sub: 03 Datatype: 0031 Bitlength: 0002 Obj.access: 0087 Name: Limit 1
+          Value :0x0
+  Sub: 05 Datatype: 0031 Bitlength: 0002 Obj.access: 0087 Name: Limit 2
+          Value :0x0
+  Sub: 07 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: Error
+          Value :FALSE
+  Sub: 0f Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: TxPDO State
+          Value :FALSE
+  Sub: 10 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: TxPDO Toggle
+          Value :TRUE
+  Sub: 11 Datatype: 0003 Bitlength: 0010 Obj.access: 0087 Name: Value
+          Value :0x0000 0
+ Index: 6010 Datatype: 0000 Objectcode: 09 Name: AI Inputs
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x11 17
+  Sub: 01 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: Underrange
+          Value :FALSE
+  Sub: 02 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: Overrange
+          Value :FALSE
+  Sub: 03 Datatype: 0031 Bitlength: 0002 Obj.access: 0087 Name: Limit 1
+          Value :0x0
+  Sub: 05 Datatype: 0031 Bitlength: 0002 Obj.access: 0087 Name: Limit 2
+          Value :0x0
+  Sub: 07 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: Error
+          Value :FALSE
+  Sub: 0f Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: TxPDO State
+          Value :FALSE
+  Sub: 10 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: TxPDO Toggle
+          Value :TRUE
+  Sub: 11 Datatype: 0003 Bitlength: 0010 Obj.access: 0087 Name: Value
+          Value :0x0000 0
+ Index: 6020 Datatype: 0000 Objectcode: 09 Name: AI Inputs
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x11 17
+  Sub: 01 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: Underrange
+          Value :FALSE
+  Sub: 02 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: Overrange
+          Value :FALSE
+  Sub: 03 Datatype: 0031 Bitlength: 0002 Obj.access: 0087 Name: Limit 1
+          Value :0x0
+  Sub: 05 Datatype: 0031 Bitlength: 0002 Obj.access: 0087 Name: Limit 2
+          Value :0x0
+  Sub: 07 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: Error
+          Value :FALSE
+  Sub: 0f Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: TxPDO State
+          Value :FALSE
+  Sub: 10 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: TxPDO Toggle
+          Value :TRUE
+  Sub: 11 Datatype: 0003 Bitlength: 0010 Obj.access: 0087 Name: Value
+          Value :0x0001 1
+ Index: 6030 Datatype: 0000 Objectcode: 09 Name: AI Inputs
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x11 17
+  Sub: 01 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: Underrange
+          Value :FALSE
+  Sub: 02 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: Overrange
+          Value :FALSE
+  Sub: 03 Datatype: 0031 Bitlength: 0002 Obj.access: 0087 Name: Limit 1
+          Value :0x0
+  Sub: 05 Datatype: 0031 Bitlength: 0002 Obj.access: 0087 Name: Limit 2
+          Value :0x0
+  Sub: 07 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: Error
+          Value :FALSE
+  Sub: 0f Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: TxPDO State
+          Value :FALSE
+  Sub: 10 Datatype: 0001 Bitlength: 0001 Obj.access: 0087 Name: TxPDO Toggle
+          Value :TRUE
+  Sub: 11 Datatype: 0003 Bitlength: 0010 Obj.access: 0087 Name: Value
+          Value :0x0000 0
+ Index: 8000 Datatype: 0000 Objectcode: 09 Name: AI Settings
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x18 24
+  Sub: 01 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user scale
+          Value :FALSE
+  Sub: 02 Datatype: 0800 Bitlength: 0003 Obj.access: 033f Name: Presentation
+          Value :Unknown type
+  Sub: 05 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Siemens bits
+          Value :FALSE
+  Sub: 06 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable filter
+          Value :TRUE
+  Sub: 07 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable limit 1
+          Value :FALSE
+  Sub: 08 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable limit 2
+          Value :FALSE
+  Sub: 0a Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user calibration
+          Value :FALSE
+  Sub: 0b Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable vendor calibration
+          Value :TRUE
+  Sub: 0e Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Swap limit bits
+          Value :FALSE
+  Sub: 11 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User scale offset
+          Value :0x0000 0
+  Sub: 12 Datatype: 0004 Bitlength: 0020 Obj.access: 033f Name: User scale gain
+          Value :0x00010000 65536
+  Sub: 13 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Limit 1
+          Value :0x0000 0
+  Sub: 14 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Limit 2
+          Value :0x0000 0
+  Sub: 15 Datatype: 0801 Bitlength: 0010 Obj.access: 033f Name: Filter settings
+          Value :Unknown type
+  Sub: 17 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User calibration offset
+          Value :0x0000 0
+  Sub: 18 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User calibration gain
+          Value :0x4000 16384
+ Index: 800e Datatype: 0000 Objectcode: 09 Name: AI Internal data
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 0007 Name: ADC raw value
+          Value :0x00b6 182
+ Index: 800f Datatype: 0000 Objectcode: 09 Name: AI Vendor data
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x02 2
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 003f Name: Calibration offset
+          Value :0x05af 1455
+  Sub: 02 Datatype: 0003 Bitlength: 0010 Obj.access: 003f Name: Calibration gain
+          Value :0x495b 18779
+ Index: 8010 Datatype: 0000 Objectcode: 09 Name: AI Settings
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x18 24
+  Sub: 01 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user scale
+          Value :FALSE
+  Sub: 02 Datatype: 0800 Bitlength: 0003 Obj.access: 033f Name: Presentation
+          Value :Unknown type
+  Sub: 05 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Siemens bits
+          Value :FALSE
+  Sub: 06 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable filter
+          Value :TRUE
+  Sub: 07 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable limit 1
+          Value :FALSE
+  Sub: 08 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable limit 2
+          Value :FALSE
+  Sub: 0a Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user calibration
+          Value :FALSE
+  Sub: 0b Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable vendor calibration
+          Value :TRUE
+  Sub: 0e Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Swap limit bits
+          Value :FALSE
+  Sub: 11 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User scale offset
+          Value :0x0000 0
+  Sub: 12 Datatype: 0004 Bitlength: 0020 Obj.access: 033f Name: User scale gain
+          Value :0x00010000 65536
+  Sub: 13 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Limit 1
+          Value :0x0000 0
+  Sub: 14 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Limit 2
+          Value :0x0000 0
+  Sub: 15 Datatype: 0801 Bitlength: 0010 Obj.access: 033f Name: Filter settings
+          Value :Unknown type
+  Sub: 17 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User calibration offset
+          Value :0x0000 0
+  Sub: 18 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User calibration gain
+          Value :0x4000 16384
+ Index: 801e Datatype: 0000 Objectcode: 09 Name: AI Internal data
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 0007 Name: ADC raw value
+          Value :0x00ba 186
+ Index: 801f Datatype: 0000 Objectcode: 09 Name: AI Vendor data
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x02 2
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 003f Name: Calibration offset
+          Value :0x05cd 1485
+  Sub: 02 Datatype: 0003 Bitlength: 0010 Obj.access: 003f Name: Calibration gain
+          Value :0x4a11 18961
+ Index: 8020 Datatype: 0000 Objectcode: 09 Name: AI Settings
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x18 24
+  Sub: 01 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user scale
+          Value :FALSE
+  Sub: 02 Datatype: 0800 Bitlength: 0003 Obj.access: 033f Name: Presentation
+          Value :Unknown type
+  Sub: 05 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Siemens bits
+          Value :FALSE
+  Sub: 06 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable filter
+          Value :TRUE
+  Sub: 07 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable limit 1
+          Value :FALSE
+  Sub: 08 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable limit 2
+          Value :FALSE
+  Sub: 0a Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user calibration
+          Value :FALSE
+  Sub: 0b Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable vendor calibration
+          Value :TRUE
+  Sub: 0e Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Swap limit bits
+          Value :FALSE
+  Sub: 11 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User scale offset
+          Value :0x0000 0
+  Sub: 12 Datatype: 0004 Bitlength: 0020 Obj.access: 033f Name: User scale gain
+          Value :0x00010000 65536
+  Sub: 13 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Limit 1
+          Value :0x0000 0
+  Sub: 14 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Limit 2
+          Value :0x0000 0
+  Sub: 15 Datatype: 0801 Bitlength: 0010 Obj.access: 033f Name: Filter settings
+          Value :Unknown type
+  Sub: 17 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User calibration offset
+          Value :0x0000 0
+  Sub: 18 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User calibration gain
+          Value :0x4000 16384
+ Index: 802e Datatype: 0000 Objectcode: 09 Name: AI Internal data
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 0007 Name: ADC raw value
+          Value :0x00b6 182
+ Index: 802f Datatype: 0000 Objectcode: 09 Name: AI Vendor data
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x02 2
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 003f Name: Calibration offset
+          Value :0x05ad 1453
+  Sub: 02 Datatype: 0003 Bitlength: 0010 Obj.access: 003f Name: Calibration gain
+          Value :0x49a3 18851
+ Index: 8030 Datatype: 0000 Objectcode: 09 Name: AI Settings
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x18 24
+  Sub: 01 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user scale
+          Value :FALSE
+  Sub: 02 Datatype: 0800 Bitlength: 0003 Obj.access: 033f Name: Presentation
+          Value :Unknown type
+  Sub: 05 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Siemens bits
+          Value :FALSE
+  Sub: 06 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable filter
+          Value :TRUE
+  Sub: 07 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable limit 1
+          Value :FALSE
+  Sub: 08 Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable limit 2
+          Value :FALSE
+  Sub: 0a Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable user calibration
+          Value :FALSE
+  Sub: 0b Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Enable vendor calibration
+          Value :TRUE
+  Sub: 0e Datatype: 0001 Bitlength: 0001 Obj.access: 033f Name: Swap limit bits
+          Value :FALSE
+  Sub: 11 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User scale offset
+          Value :0x0000 0
+  Sub: 12 Datatype: 0004 Bitlength: 0020 Obj.access: 033f Name: User scale gain
+          Value :0x00010000 65536
+  Sub: 13 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Limit 1
+          Value :0x0000 0
+  Sub: 14 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: Limit 2
+          Value :0x0000 0
+  Sub: 15 Datatype: 0801 Bitlength: 0010 Obj.access: 033f Name: Filter settings
+          Value :Unknown type
+  Sub: 17 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User calibration offset
+          Value :0x0000 0
+  Sub: 18 Datatype: 0003 Bitlength: 0010 Obj.access: 033f Name: User calibration gain
+          Value :0x4000 16384
+ Index: 803e Datatype: 0000 Objectcode: 09 Name: AI Internal data
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x01 1
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 0007 Name: ADC raw value
+          Value :0x00bb 187
+ Index: 803f Datatype: 0000 Objectcode: 09 Name: AI Vendor data
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x02 2
+  Sub: 01 Datatype: 0003 Bitlength: 0010 Obj.access: 003f Name: Calibration offset
+          Value :0x05d8 1496
+  Sub: 02 Datatype: 0003 Bitlength: 0010 Obj.access: 003f Name: Calibration gain
+          Value :0x4a04 18948
+ Index: f000 Datatype: 002c Objectcode: 09 Name: Modular device profile
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x02 2
+  Sub: 01 Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: Module index distance
+          Value :0x0010 16
+  Sub: 02 Datatype: 0006 Bitlength: 0010 Obj.access: 0007 Name: Maximum number of modules
+          Value :0x0008 8
+ Index: f008 Datatype: 0007 Objectcode: 07 Name: Code word
+  Sub: 00 Datatype: 0007 Bitlength: 0020 Obj.access: 003f Name: Code word
+          Value :0x00000000 0
+ Index: f009 Datatype: 0007 Objectcode: 07 Name: Password protection
+  Sub: 00 Datatype: 0007 Bitlength: 0020 Obj.access: 003f Name: Password protection
+          Value :0x00000000 0
+ Index: f010 Datatype: 0007 Objectcode: 08 Name: Module list
+  Sub: 00 Datatype: 0005 Bitlength: 0008 Obj.access: 0007 Name: SubIndex 000
+          Value :0x04 4
+  Sub: 01 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 001
+          Value :0x0000012c 300
+  Sub: 02 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 002
+          Value :0x0000012c 300
+  Sub: 03 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 003
+          Value :0x0000012c 300
+  Sub: 04 Datatype: 0007 Bitlength: 0020 Obj.access: 0007 Name: SubIndex 004
+          Value :0x0000012c 300
+start testing
+Request operational state for all slaves
+Calculated workcounter 6
+Not all slaves reached soperational state.
+Slave 1 State= 8 StatusCode=   0 : No error
+Slave 2 State= 8 StatusCode=   0 : No error
+Slave 3 State= 8 StatusCode=   0 : No error
+Slave 4 State= 8 StatusCode=   0 : No error
+Slave 5 State= 8 StatusCode=   0 : No error
+wkc: 0, slave number: 3, entries: 0
+index:1000, type:0007
+index:1008, type:0009
+index:1009, type:0009
+index:100a, type:0009
+index:1011, type:0007
+index:1018, type:0023
+index:10f0, type:002b
+index:1800, type:0027
+0 12288
+wkc 0 
+21 0
+wkc 0 
+42 12288
+wkc 0 
+63 0
+wkc 0 
+84 12288
+wkc 0 
+105 0
+wkc 0 
+126 12288
+wkc 0 
+147 0
+wkc 0 
+168 12288
+wkc 0 
+189 0
+wkc 0 
+210 12288
+wkc 0 
+231 0
+wkc 0 
+252 12288
+wkc 0 
+273 0
+wkc 0 
+294 12288
+wkc 0 
+315 0
+wkc 0 
+336 12288
+wkc 0 
+357 0
+wkc 0 
+378 12288
+wkc 0 
+399 0
+wkc 0 
+420 12288
+wkc 0 
+441 0
+wkc 0 
+462 12288
+wkc 0 
+483 0
+wkc 0 
+504 12288
+wkc 0 
+525 0
+wkc 0 
+546 12288
+wkc 0 
+567 0
+wkc 0 
+588 12288
+wkc 0 
+609 0
+wkc 0 
+630 12288
+wkc 0 
+651 0
+wkc 0 
+672 12288
+wkc 0 
+693 0
+wkc 0 
+714 12288
+wkc 0 
+735 0
+wkc 0 
+756 12288
+wkc 0 
+777 0
+wkc 0 
+798 12288
+wkc 0 
+819 0
+wkc 0 
+840 12288
+wkc 0 
+861 0
+wkc 0 
+882 12288
+wkc 0 
+903 0
+wkc 0 
+924 12288
+wkc 0 
+945 0
+wkc 0 
+966 12288
+wkc 0 
+987 0
+wkc 0 
+End slaveinfo, close socket
+End program
