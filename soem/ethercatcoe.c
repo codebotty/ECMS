@@ -112,7 +112,7 @@ uint16		   TargetPort;
 char		   SenderNetID[6] = "mastr";
 
 
-int aoe_read(uint16 Slave, uint32 group, uint32 offset, uint32 length, void* data)
+int aoe_read(uint16 slave, uint32 group, uint32 offset, uint32 length, void* data)
 {
    ecx_contextt * context;
    context = &ecx_context;
@@ -138,7 +138,7 @@ int aoe_read(uint16 Slave, uint32 group, uint32 offset, uint32 length, void* dat
    memcpy(SDOp->TargetNetID, TargetNetID, sizeof(TargetNetID));
    SDOp->TargetPort = TargetPort;
    memcpy(SDOp->SenderNetID, SenderNetID, sizeof(SenderNetID));
-   SDOp->SenderPort = SenderPort;
+   SDOp->SenderPort = context->port;
    SDOp->CommandID = 0x02;
    SDOp->StateFlags = 0x04;
    SDOp->DataSize = 0x0c;
@@ -151,7 +151,7 @@ int aoe_read(uint16 Slave, uint32 group, uint32 offset, uint32 length, void* dat
       /* clean mailboxbuffer */
       ec_clearmbx(&MbxIn);
       /* read slave response */
-      wkc = ecx_mbxreceive(context, slave, (ec_mbxbuft *)&MbxIn, timeout);
+      wkc = ecx_mbxreceive(context, slave, (ec_mbxbuft *)&MbxIn, EC_TIMEOUTTXM);
       if (wkc > 0) /* succeeded to read slave response ? */
       {
          /* slave response should be CoE, TxPDO */
@@ -172,7 +172,7 @@ int aoe_read(uint16 Slave, uint32 group, uint32 offset, uint32 length, void* dat
 
    return wkc;
 }
-int aoe_write(uint16 Slave, uint32 group, uint32 offset, uint32 length, void *data)
+int aoe_write(uint16 slave, uint32 group, uint32 offset, uint32 length, void *data)
 {
    ecx_contextt * context;
    context = &ecx_context;  
@@ -205,14 +205,14 @@ int aoe_write(uint16 Slave, uint32 group, uint32 offset, uint32 length, void *da
    SDOp->writeRequest.group = group;
    SDOp->writeRequest.offset = offset;
    SDOp->writeRequest.length = length;
-   memcpy(writeRequest.data, data, length);
+   memcpy(SDOp->writeRequest.wdata, data, length);
    wkc = ecx_mbxsend(context, slave, (ec_mbxbuft *)&MbxOut, EC_TIMEOUTTXM);
    if (wkc > 0)
    {
       /* clean mailboxbuffer */
       ec_clearmbx(&MbxIn);
       /* write slave response */
-      wkc = ecx_mbxreceive(context, slave, (ec_mbxbuft *)&MbxIn, timeout);
+      wkc = ecx_mbxreceive(context, slave, (ec_mbxbuft *)&MbxIn, EC_TIMEOUTTXM);
       if (wkc > 0) /* succeeded to write slave response ? */
       {
          /* slave response should be CoE, TxPDO */
@@ -232,7 +232,7 @@ int aoe_write(uint16 Slave, uint32 group, uint32 offset, uint32 length, void *da
    }
    return wkc;
 }
-int aoe_init(uint16 Slave, char *netid, uint16 port, uint32 invokeID)
+int aoe_init(uint16 slave, char *netid, uint16 port, uint32 invokeID)
 {
    ecx_contextt * context;
    context = &ecx_context;  
@@ -266,14 +266,14 @@ int aoe_init(uint16 Slave, char *netid, uint16 port, uint32 invokeID)
    SDOp->writeRequest.group = 1;
    SDOp->writeRequest.offset = 3;
    SDOp->writeRequest.length = 6;
-   memcpy(writeRequest.data, TargetNetID, 6);
+   memcpy(SDOp->writeRequest.wdata, TargetNetID, 6);
    wkc = ecx_mbxsend(context, slave, (ec_mbxbuft *)&MbxOut, EC_TIMEOUTTXM);
    if (wkc > 0)
    {
       /* clean mailboxbuffer */
       ec_clearmbx(&MbxIn);
       /* write slave response */
-      wkc = ecx_mbxreceive(context, slave, (ec_mbxbuft *)&MbxIn, timeout);
+      wkc = ecx_mbxreceive(context, slave, (ec_mbxbuft *)&MbxIn, EC_TIMEOUTTXM);
       if (wkc > 0) /* succeeded to write slave response ? */
       {
          /* slave response should be CoE, TxPDO */

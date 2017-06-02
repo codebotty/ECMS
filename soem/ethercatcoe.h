@@ -67,9 +67,9 @@ int ec_SDOwrite(uint16 Slave, uint16 Index, uint8 SubIndex,
 int ec_RxPDO(uint16 Slave, uint16 RxPDOnumber , int psize, void *p);
 int RxPDO2(uint16 Slave, uint16 RxPDOnumber, int psize, void* p);
 int ec_TxPDO(uint16 slave, uint16 TxPDOnumber , int *psize, void *p, int timeout);
-int aoe_read(uint32 group, uint32 offset, uint32 length, void* data);
-int aoe_write(uint32 group, uint32 offset, uint32 length, void *data);
-int aoe_init(char *netid, uint16 port, uint32 invokeID);
+int aoe_read(uint16 Slave,uint32 group, uint32 offset, uint32 length, void* data);
+int aoe_write(uint16 Slave, uint32 group, uint32 offset, uint32 length, void *data);
+int aoe_init(uint16 Slave, char *netid, uint16 port, uint32 invokeID);
 int ec_readPDOmap(uint16 Slave, int *Osize, int *Isize);
 int ec_readPDOmapCA(uint16 Slave, int Thread_n, int *Osize, int *Isize);
 int ec_readODlist(uint16 Slave, ec_ODlistt *pODlist);
