@@ -646,24 +646,29 @@ void slaveinfo(char *ifname)
          }
 
 
-         wkc = ec_readODlist(3,&ODlist);
+         wkc = ec_readODlist(4,&ODlist);
          printf("wkc: %d, slave number: %d, entries: %d\n",wkc, ODlist.Slave, ODlist.Entries);
-         for(i=0; i<8; i++)
+         for(i=0; i<12; i++)
          {
             printf("index:%4.4x, type:%4.4x\n", ODlist.Index[i], ODlist.DataType[i]);
          }
-         
-         for(i=0; i<100; i++)
+	uint8 d8 = 0x0f;
+	for(i=1; i<=ec_slavecount;i++){
+		printf("ec slave %d obits: %d\n",i,ec_slave[i].Obits);
+		printf("ec slave %d ibits: %d\n",i,ec_slave[i].Ibits);
+	}
+	memcpy(ec_slave[3].outputs,&d8, sizeof(uint8));
+	ec_send_processdata();
+	printf("timeoutret: %d\n",EC_TIMEOUTRET);
+         for(i=0; i<3000000; i++)
          {
-            b[0] = 0x0ff0 - b[0];
-            b[1] = 0x0ff0 - b[1];
-            b[2] = 0x0ff0 - b[2];
-            b[3] = 0x0ff0 - b[3];
-            if(i%21==0) printf("%d %d\n",i, b[0]);
-            wkc = ec_RxPDO(4, 0x1600, sizeof(b), b);
-            //wkc = ec_SDOwrite(4, 0x7000, 01, FALSE, sizeof(b), &b, EC_TIMEOUTRXM);
-            if(i%21==0) printf("wkc %d \n",wkc);
-            osal_usleep(500000);
+		wkc = ec_receive_processdata(1000);
+		memcpy(&d8,ec_slave[2].inputs,sizeof(uint8));
+
+		memcpy(ec_slave[3].outputs,&d8, sizeof(uint8));
+		wkc = ec_send_processdata();
+		//	if(i%50000==0)
+		//	printf("d8 %d \n",d8);
          }
          
       }
