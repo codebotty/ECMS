@@ -55,6 +55,247 @@ typedef struct PACKED
 } ec_SDOservicet;
 PACKED_END
 
+PACKED_BEGIN
+typedef struct PACKED
+{
+   uint32 group;
+   uint32 offset;
+   uint32 length;
+} AOE_readrequestt;
+PACKED_END
+
+PACKED_BEGIN
+typedef struct PACKED
+{
+   uint32 result;
+   uint32 length;
+   uint8 rdata[475];
+} AOE_readresponset;
+PACKED_END
+
+PACKED_BEGIN
+typedef struct PACKED
+{
+   uint32 group;
+   uint32 offset;
+   uint32 length;
+   uint8 wdata[471];
+} AOE_writerequestt;
+PACKED_END
+
+
+PACKED_BEGIN
+typedef struct PACKED
+{
+   ec_mbxheadert   MbxHeader;
+   char			   TargetNetID[6];
+   uint16		   TargetPort;
+   char			   SenderNetID[6];
+   uint16		   SenderPort;
+   uint16		   CommandID;
+   uint16		   StateFlags;
+   uint32		   DataSize;
+   uint32		   ErrCode;
+   uint32		   InvokeID;
+   union
+   {
+      AOE_readrequestt	readRequest;
+	  AOE_readresponset readResponse;
+	  AOE_writerequestt	writeRequest;
+	  uint32 writeResponse;
+   };
+} ec_AOEt;
+PACKED_END
+
+char		   TargetNetID[6] = "slave";
+uint16		   TargetPort;
+char		   SenderNetID[6] = "mastr";
+
+
+int aoe_read(uint16 Slave, uint32 group, uint32 offset, uint32 length, void* data)
+{
+   ecx_contextt * context;
+   context = &ecx_context;
+   ec_AOEt *SDOp, *aSDOp;
+   int wkc;
+   ec_mbxbuft MbxIn, MbxOut;
+   uint8 cnt;
+   uint16 framedatasize;
+
+   ec_clearmbx(&MbxIn);
+   /* Empty slave out mailbox if something is in. Timout set to 0 */
+   wkc = ecx_mbxreceive(context, slave, (ec_mbxbuft *)&MbxIn, 0);
+   ec_clearmbx(&MbxOut);
+   aSDOp = (ec_AOEt *)&MbxIn;
+   SDOp = (ec_AOEt *)&MbxOut;
+   SDOp->MbxHeader.length = htoes(0x02c);
+   SDOp->MbxHeader.address = htoes(0x0000);
+   SDOp->MbxHeader.priority = 0x00;
+   /* get new mailbox counter, used for session handle */
+   cnt = ec_nextmbxcnt(context->slavelist[slave].mbx_cnt);
+   context->slavelist[slave].mbx_cnt = cnt;
+   SDOp->MbxHeader.mbxtype = ECT_MBXT_AOE + (cnt << 4); /* CoE */
+   memcpy(SDOp->TargetNetID, TargetNetID, sizeof(TargetNetID));
+   SDOp->TargetPort = TargetPort;
+   memcpy(SDOp->SenderNetID, SenderNetID, sizeof(SenderNetID));
+   SDOp->SenderPort = SenderPort;
+   SDOp->CommandID = 0x02;
+   SDOp->StateFlags = 0x04;
+   SDOp->DataSize = 0x0c;
+   SDOp->readRequest.group = group;
+   SDOp->readRequest.offset = offset;
+   SDOp->readRequest.length = length;
+   wkc = ecx_mbxsend(context, slave, (ec_mbxbuft *)&MbxOut, EC_TIMEOUTTXM);
+   if (wkc > 0)
+   {
+      /* clean mailboxbuffer */
+      ec_clearmbx(&MbxIn);
+      /* read slave response */
+      wkc = ecx_mbxreceive(context, slave, (ec_mbxbuft *)&MbxIn, timeout);
+      if (wkc > 0) /* succeeded to read slave response ? */
+      {
+         /* slave response should be CoE, TxPDO */
+         if (((aSDOp->MbxHeader.mbxtype & 0x0f) == ECT_MBXT_AOE))
+         {
+      
+            memcpy(data, aSDOp->readResponse.rdata, length);
+            
+         }
+         /* other slave response */
+         else
+         {
+            printf("error code : %d\n", aSDOp->ErrCode);
+            wkc = 0;
+         }
+      }
+   }
+
+   return wkc;
+}
+int aoe_write(uint16 Slave, uint32 group, uint32 offset, uint32 length, void *data)
+{
+   ecx_contextt * context;
+   context = &ecx_context;  
+   ec_AOEt *SDOp, *aSDOp;
+   int wkc;
+   ec_mbxbuft MbxIn, MbxOut;
+   uint8 cnt;
+   uint16 framedatasize;
+
+   ec_clearmbx(&MbxIn);
+   /* Empty slave out mailbox if something is in. Timout set to 0 */
+   wkc = ecx_mbxreceive(context, slave, (ec_mbxbuft *)&MbxIn, 0);
+   ec_clearmbx(&MbxOut);
+   aSDOp = (ec_AOEt *)&MbxIn;
+   SDOp = (ec_AOEt *)&MbxOut;
+   SDOp->MbxHeader.length = htoes(0x02c);
+   SDOp->MbxHeader.address = htoes(0x0000);
+   SDOp->MbxHeader.priority = 0x00;
+   /* get new mailbox counter, used for session handle */
+   cnt = ec_nextmbxcnt(context->slavelist[slave].mbx_cnt);
+   context->slavelist[slave].mbx_cnt = cnt;
+   SDOp->MbxHeader.mbxtype = ECT_MBXT_AOE + (cnt << 4); /* CoE */
+   memcpy(SDOp->TargetNetID, TargetNetID, sizeof(TargetNetID));
+   SDOp->TargetPort = TargetPort;
+   memcpy(SDOp->SenderNetID, SenderNetID, sizeof(SenderNetID));
+   SDOp->SenderPort = context->port;
+   SDOp->CommandID = 0x03;
+   SDOp->StateFlags = 0x04;
+   SDOp->DataSize = 0x0c;
+   SDOp->writeRequest.group = group;
+   SDOp->writeRequest.offset = offset;
+   SDOp->writeRequest.length = length;
+   memcpy(writeRequest.data, data, length);
+   wkc = ecx_mbxsend(context, slave, (ec_mbxbuft *)&MbxOut, EC_TIMEOUTTXM);
+   if (wkc > 0)
+   {
+      /* clean mailboxbuffer */
+      ec_clearmbx(&MbxIn);
+      /* write slave response */
+      wkc = ecx_mbxreceive(context, slave, (ec_mbxbuft *)&MbxIn, timeout);
+      if (wkc > 0) /* succeeded to write slave response ? */
+      {
+         /* slave response should be CoE, TxPDO */
+         if (((aSDOp->MbxHeader.mbxtype & 0x0f) != ECT_MBXT_AOE))
+         {
+      
+            printf("non AOE\n");
+            
+         }
+         /* other slave response */
+         else if(aSDOp->writeResponse != 0)
+         {
+            printf("error code : %d\n", aSDOp->ErrCode);
+            wkc = 0;
+         }
+      }
+   }
+   return wkc;
+}
+int aoe_init(uint16 Slave, char *netid, uint16 port, uint32 invokeID)
+{
+   ecx_contextt * context;
+   context = &ecx_context;  
+   ec_AOEt *SDOp, *aSDOp;
+   int wkc;
+   ec_mbxbuft MbxIn, MbxOut;
+   uint8 cnt;
+   uint16 framedatasize;
+
+   ec_clearmbx(&MbxIn);
+   /* Empty slave out mailbox if something is in. Timout set to 0 */
+   wkc = ecx_mbxreceive(context, slave, (ec_mbxbuft *)&MbxIn, 0);
+   ec_clearmbx(&MbxOut);
+   aSDOp = (ec_AOEt *)&MbxIn;
+   SDOp = (ec_AOEt *)&MbxOut;
+   SDOp->MbxHeader.length = htoes(0x02c);
+   SDOp->MbxHeader.address = htoes(0x0000);
+   SDOp->MbxHeader.priority = 0x00;
+   /* get new mailbox counter, used for session handle */
+   cnt = ec_nextmbxcnt(context->slavelist[slave].mbx_cnt);
+   context->slavelist[slave].mbx_cnt = cnt;
+   SDOp->MbxHeader.mbxtype = ECT_MBXT_AOE + (cnt << 4); /* CoE */
+   memcpy(SDOp->TargetNetID, SenderNetID, sizeof(TargetNetID));
+   TargetPort = port;
+   SDOp->TargetPort = TargetPort;
+   memcpy(SDOp->SenderNetID, SenderNetID, sizeof(SenderNetID));
+   SDOp->SenderPort = port;
+   SDOp->CommandID = 0x03;
+   SDOp->StateFlags = 0x04;
+   SDOp->DataSize = 0x12;
+   SDOp->writeRequest.group = 1;
+   SDOp->writeRequest.offset = 3;
+   SDOp->writeRequest.length = 6;
+   memcpy(writeRequest.data, TargetNetID, 6);
+   wkc = ecx_mbxsend(context, slave, (ec_mbxbuft *)&MbxOut, EC_TIMEOUTTXM);
+   if (wkc > 0)
+   {
+      /* clean mailboxbuffer */
+      ec_clearmbx(&MbxIn);
+      /* write slave response */
+      wkc = ecx_mbxreceive(context, slave, (ec_mbxbuft *)&MbxIn, timeout);
+      if (wkc > 0) /* succeeded to write slave response ? */
+      {
+         /* slave response should be CoE, TxPDO */
+         if (((aSDOp->MbxHeader.mbxtype & 0x0f) != ECT_MBXT_AOE))
+         {
+      
+            printf("non AOE\n");
+            
+         }
+         /* other slave response */
+         else if(aSDOp->writeResponse != 0)
+         {
+            printf("error code : %d\n", aSDOp->ErrCode);
+            wkc = 0;
+         }
+      }
+   }
+   return wkc;
+}
+
+
+
 /** Report SDO error.
  *
  * @param[in]  context    = context struct
