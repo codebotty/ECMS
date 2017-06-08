@@ -172,6 +172,59 @@ int aoe_read(uint16 slave, uint32 group, uint32 offset, uint32 length, void* dat
 
    return wkc;
 }
+
+void aoe_print(uint32 group, uint32 offset, uint32 length, void* data)
+{
+   ecx_contextt * context;
+   context = &ecx_context;  
+   ec_AOEt *SDOp, *aSDOp;
+   int wkc;
+   ec_mbxbuft MbxIn, MbxOut;
+   uint8 cnt;
+   uint16 framedatasize;
+   MbxOut = (ec_mbxbuft*)malloc(sizeof(ec_mbxbuft));
+   //ec_clearmbx(&MbxIn);
+   /* Empty slave out mailbox if something is in. Timout set to 0 */
+   //wkc = ecx_mbxreceive(context, slave, (ec_mbxbuft *)&MbxIn, 0);
+   //ec_clearmbx(&MbxOut);
+   //aSDOp = (ec_AOEt *)&MbxIn;
+   SDOp = (ec_AOEt *)&MbxOut;
+   SDOp->MbxHeader.length = htoes(0x02c);
+   SDOp->MbxHeader.address = htoes(0x0000);
+   SDOp->MbxHeader.priority = 0x00;
+   /* get new mailbox counter, used for session handle */
+   //cnt = ec_nextmbxcnt(context->slavelist[slave].mbx_cnt);
+   cnt = 0x01;
+   //context->slavelist[slave].mbx_cnt = cnt;
+   SDOp->MbxHeader.mbxtype = ECT_MBXT_AOE + (cnt << 4); /* CoE */
+   memcpy(SDOp->TargetNetID, TargetNetID, sizeof(TargetNetID));
+   printf("target ID : %s\n",SDOp->TargetNetID);
+   SDOp->TargetPort = 0x00;
+   printf("target port : %d\n",SDOp->TargetPort);
+   memcpy(SDOp->SenderNetID, SenderNetID, sizeof(SenderNetID));
+   printf("sender ID : %s\n",SDOp->TargetNetID);
+   SDOp->SenderPort = 0x01;
+   printf("sender port : %d\n",SDOp->TargetPort);
+   SDOp->CommandID = 0x03;
+   printf("Command : %d\n",SDOp->CommandID);
+   SDOp->StateFlags = 0x04;
+   printf("State flag : %x\n",SDOp->StateFlags);
+   SDOp->DataSize = 0x0b + length;
+   printf("Data size : %d\n",SDOp->DataSize);
+   SDOp->writeRequest.group = group;
+   printf("Write group : %d\n",SDOp->writeRequest.group);
+   SDOp->writeRequest.offset = offset;
+   printf("Write offset : %d\n",SDOp->writeRequest.offset);
+   SDOp->writeRequest.length = length;
+   printf("Write length : %d\n",SDOp->writeRequest.length);
+   memcpy(SDOp->writeRequest.wdata, data, length);
+   int i;
+   printf("write message : ");
+   for (i=0; i<length; i++)
+      printf("%c",writeRequest.wdata[i]);
+   printf("\n");
+}
+
 int aoe_write(uint16 slave, uint32 group, uint32 offset, uint32 length, void *data)
 {
    ecx_contextt * context;
