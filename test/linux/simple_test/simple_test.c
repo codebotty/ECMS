@@ -38,7 +38,7 @@ void simpletest(char *ifname)
    {
       printf("ec_init on %s succeeded.\n",ifname);
       /* find and auto-config slaves */
-
+	aoe_print(3,4,6,"aaaaa");
 
        if ( ec_config_init(FALSE) > 0 )
       {

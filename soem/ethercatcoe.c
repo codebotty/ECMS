@@ -182,27 +182,33 @@ void aoe_print(uint32 group, uint32 offset, uint32 length, void* data)
    ec_mbxbuft MbxIn, MbxOut;
    uint8 cnt;
    uint16 framedatasize;
-   MbxOut = (ec_mbxbuft*)malloc(sizeof(ec_mbxbuft));
-   //ec_clearmbx(&MbxIn);
+
+   ec_clearmbx(&MbxIn);
    /* Empty slave out mailbox if something is in. Timout set to 0 */
-   //wkc = ecx_mbxreceive(context, slave, (ec_mbxbuft *)&MbxIn, 0);
-   //ec_clearmbx(&MbxOut);
-   //aSDOp = (ec_AOEt *)&MbxIn;
+   wkc = ecx_mbxreceive(context, 0, (ec_mbxbuft *)&MbxIn, 0);
+   ec_clearmbx(&MbxOut);
+   aSDOp = (ec_AOEt *)&MbxIn;
    SDOp = (ec_AOEt *)&MbxOut;
-   SDOp->MbxHeader.length = htoes(0x02c);
+   printf("mailbox header\n");
+   SDOp->MbxHeader.length = htoes(0x02b + length);
+   printf("mailbox data length:%d\n",0x02b + length);
    SDOp->MbxHeader.address = htoes(0x0000);
+   printf("mailbox address:%d\n",SDOp->MbxHeader.address);
+
    SDOp->MbxHeader.priority = 0x00;
+   printf("mailbox channel & priority:%d\n",SDOp->MbxHeader.priority);
    /* get new mailbox counter, used for session handle */
    //cnt = ec_nextmbxcnt(context->slavelist[slave].mbx_cnt);
-   cnt = 0x01;
+   cnt = 0x00;
    //context->slavelist[slave].mbx_cnt = cnt;
    SDOp->MbxHeader.mbxtype = ECT_MBXT_AOE + (cnt << 4); /* CoE */
+   printf("mailbox cnt and type:%x\n",SDOp->MbxHeader.mbxtype);
    memcpy(SDOp->TargetNetID, TargetNetID, sizeof(TargetNetID));
    printf("target ID : %s\n",SDOp->TargetNetID);
    SDOp->TargetPort = 0x00;
    printf("target port : %d\n",SDOp->TargetPort);
    memcpy(SDOp->SenderNetID, SenderNetID, sizeof(SenderNetID));
-   printf("sender ID : %s\n",SDOp->TargetNetID);
+   printf("sender ID : %s\n",SDOp->SenderNetID);
    SDOp->SenderPort = 0x01;
    printf("sender port : %d\n",SDOp->TargetPort);
    SDOp->CommandID = 0x03;
@@ -211,6 +217,8 @@ void aoe_print(uint32 group, uint32 offset, uint32 length, void* data)
    printf("State flag : %x\n",SDOp->StateFlags);
    SDOp->DataSize = 0x0b + length;
    printf("Data size : %d\n",SDOp->DataSize);
+   printf("Error code : %d\n",SDOp->ErrCode);
+   printf("Invoke ID : %d\n",SDOp->InvokeID);
    SDOp->writeRequest.group = group;
    printf("Write group : %d\n",SDOp->writeRequest.group);
    SDOp->writeRequest.offset = offset;
@@ -221,7 +229,7 @@ void aoe_print(uint32 group, uint32 offset, uint32 length, void* data)
    int i;
    printf("write message : ");
    for (i=0; i<length; i++)
-      printf("%c",writeRequest.wdata[i]);
+      printf("%c",SDOp->writeRequest.wdata[i]);
    printf("\n");
 }
 
